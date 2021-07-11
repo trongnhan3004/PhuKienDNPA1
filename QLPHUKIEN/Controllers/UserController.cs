@@ -28,7 +28,7 @@ namespace QLPHUKIEN.Controllers
             var matkhau = collection["Matkhau"];
             var matkhaunhaplai = collection["Matkhaunhaplai"];
             var diachi = collection["Diachi"];
-            var email = collection["Enail"];
+            var email = collection["Email"];
             var dienthoai = collection["Dienthoai"];
             var ngaysinh = String.Format("{0:MM/dd/yyyy}", collection["Ngaysinh"]);
             if (string.IsNullOrEmpty(hoten))

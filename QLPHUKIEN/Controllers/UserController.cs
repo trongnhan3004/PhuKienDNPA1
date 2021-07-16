@@ -69,7 +69,7 @@ namespace QLPHUKIEN.Controllers
                 db.KHACHHANGs.InsertOnSubmit(kh);
                 //db.KHACHHANG.InsertOnSoubmit(kh);
                 db.SubmitChanges();
-                return RedirectToAction("Dangnhap");
+                return RedirectToAction("Dangnhap", "User");
             }
             return this.DangKy();
         }
@@ -98,6 +98,7 @@ namespace QLPHUKIEN.Controllers
                 {
                     ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
                     Session["TaiKhoan"] = kh;
+                    return RedirectToAction("Index", "PhuKien");
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẫu không đúng ";

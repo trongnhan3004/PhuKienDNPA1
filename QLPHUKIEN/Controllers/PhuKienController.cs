@@ -20,12 +20,10 @@ namespace QLPHUKIEN.Controllers
             }
 
         // GET: PhuKien
-        public ActionResult Index(int ? page)
+        public ActionResult Index()
         {
-            // tao bien quy dinh so san pham tren moi trang
-            int pageSize = 5;
-            int pageNum = (page ?? 1);
-            var phukienmoi = Layphukien(5);
+            //lay 4 khu kien moi
+            var phukienmoi = Layphukien(4);
             return View(phukienmoi);
         }
         public ActionResult Chude()

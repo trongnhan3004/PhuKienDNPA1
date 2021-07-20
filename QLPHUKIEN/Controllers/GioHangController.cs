@@ -44,11 +44,11 @@ namespace QLPHUKIEN.Controllers
                 return Redirect(strURL);
             }
         }
-        public int TongSoLuong ()
+        public int TongSoLuong()
         {
             int iTongSoLuong = 0;
             List<GioHang> lstGiohang = Session["GioHang"] as List<GioHang>;
-            if (lstGiohang!=null)
+            if (lstGiohang != null)
             {
                 iTongSoLuong = lstGiohang.Sum(n => n.iSoLuong);
             }
@@ -58,13 +58,13 @@ namespace QLPHUKIEN.Controllers
         {
             double iTongTien = 0;
             List<GioHang> lstGiohang = Session["GioHang"] as List<GioHang>;
-            if (lstGiohang !=null)
+            if (lstGiohang != null)
             {
                 iTongTien = lstGiohang.Sum(n => n.dThanhTien);
             }
             return iTongTien;
         }
-        public ActionResult GioHang ()
+        public ActionResult GioHang()
         {
             List<GioHang> lstGiohang = Laygiohang();
             if (lstGiohang.Count == 0)
@@ -76,7 +76,6 @@ namespace QLPHUKIEN.Controllers
             ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
-       
         public ActionResult GiohangPartial()
         {
             ViewBag.Tongsoluong = TongSoLuong();
@@ -89,12 +88,12 @@ namespace QLPHUKIEN.Controllers
         {
             List<GioHang> lstGiohang = Laygiohang();
             GioHang sanpham = lstGiohang.SingleOrDefault(n => n.iMaPK == iMaSP);
-            if (sanpham !=null)
+            if (sanpham != null)
             {
                 lstGiohang.RemoveAll(n => n.iMaPK == iMaSP);
                 return RedirectToAction("GioHang");
             }
-            if (lstGiohang.Count ==0)
+            if (lstGiohang.Count == 0)
             {
                 return RedirectToAction("Index", "PhuKien");
 
@@ -102,11 +101,11 @@ namespace QLPHUKIEN.Controllers
             return RedirectToAction("GioHang");
 
         }
-         public ActionResult CapnhatGiohang (int iMaSP, FormCollection f)
+        public ActionResult CapnhatGiohang(int iMaSP, FormCollection f)
         {
             List<GioHang> lstGiohang = Laygiohang();
             GioHang sanpham = lstGiohang.SingleOrDefault(n => n.iMaPK == iMaSP);
-            if (sanpham!=null)
+            if (sanpham != null)
             {
                 sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
 
@@ -123,12 +122,12 @@ namespace QLPHUKIEN.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
-            if (Session["Taikhoan"] == null|| Session["Taikhoan"].ToString()=="")
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
             {
                 return RedirectToAction("Dangnhap", "User");
 
             }
-            if (Session["Giohang"]==null)
+            if (Session["Giohang"] == null)
             {
                 return RedirectToAction("Index", "PhuKien");
 
@@ -138,7 +137,7 @@ namespace QLPHUKIEN.Controllers
             ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
-        public ActionResult DatHang (FormCollection collection)
+        public ActionResult DatHang(FormCollection collection)
         {
             DONDATHANG ddh = new DONDATHANG();
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
@@ -165,7 +164,7 @@ namespace QLPHUKIEN.Controllers
             Session["Giohang"] = null;
             return RedirectToAction("Xacnhandonhang", "Giohang");
         }
-        public ActionResult Xacnhandonhang ()
+        public ActionResult Xacnhandonhang()
         {
             return View();
         }

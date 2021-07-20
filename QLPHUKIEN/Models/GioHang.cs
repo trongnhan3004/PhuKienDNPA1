@@ -17,7 +17,7 @@ namespace QLPHUKIEN.Models
         {
             get { return iSoLuong * dGiaban; }
         }
-        public GioHang (int MaPK)
+        public GioHang(int MaPK)
         {
             iMaPK = MaPK;
             PHUKIEN phukien = data.PHUKIENs.Single(n => n.MaPK == iMaPK);

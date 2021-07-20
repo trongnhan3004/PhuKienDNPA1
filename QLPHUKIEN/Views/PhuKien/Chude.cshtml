@@ -1,10 +1,9 @@
-﻿@model IEnumerable<QLPHUKIEN.Models.CHUDE> 
+﻿@model IEnumerable<QLPHUKIEN.Models.CHUDE>
 
-    <div class=" list-group">
-        @foreach (var item in Model)
-        {
-            <a href="@Url.Action("SPTheochude","PHUKIEN", new { id = item.MaCD})" class="list-group-item">
-            @item.TenChuDe
-               </a>
-        }
-    </div>
+<div class=" list-group">
+    @foreach (var item in Model)
+    {
+<a href="@Url.Action("SPTheochude","PHUKIEN", new { id = item.MaCD})" class="list-group-item">
+    @item.TenChuDe
+</a>}
+</div>

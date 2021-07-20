@@ -13,18 +13,20 @@ namespace QLPHUKIEN.Controllers
     {
         dbQLPhukienDataContext data = new dbQLPhukienDataContext();
         private List<PHUKIEN> Layphukien(int count)
-            {
+        {
             return data.PHUKIENs.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
 
 
-            }
+        }
 
         // GET: PhuKien
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            //lay 4 khu kien moi
-            var phukienmoi = Layphukien(4);
-            return View(phukienmoi);
+            // tao bien quy dinh so san pham tren moi trang
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
+            var phukienmoi = Layphukien(100);
+            return View(phukienmoi.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Chude()
         {

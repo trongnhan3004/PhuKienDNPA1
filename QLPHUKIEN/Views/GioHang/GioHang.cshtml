@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<QLPHUKIEN.Models.GioHang>
 
-@{
-    ViewBag.Title = "GioHang";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewBag.Title = "GioHang";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <h2 style="text-align:center; font-weight:bold">THÔNG TIN GIỎ HÀNG</h2>
 <table align="center" border="1">
@@ -20,28 +18,25 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr style="text-align:center; font-weight:bold">
-            <td>@item.iMaPK</td>
-            <td>@item.sTenPK</td>
-            <td><img src="/images/@item.sAnhbia" width="150" height="100" /></td>
-            @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSP = item.iMaPK }))
-            {
-                <td>
-                    <input type="number" min="1" name="txtSoluong" value="@item.iSoLuong" style="background-color:cornflowerblue" />
-                </td>
+<tr style="text-align:center; font-weight:bold">
+    <td>@item.iMaPK</td>
+    <td>@item.sTenPK</td>
+    <td><img src="/images/@item.sAnhbia" width="150" height="100" /></td>
+    @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSP = item.iMaPK }))
+    {
+<td>
+    <input type="number" min="1" name="txtSoluong" value="@item.iSoLuong" style="background-color:cornflowerblue" />
+</td>
 
-                <td>@item.iSoLuong</td>
-                <td>@String.Format("{0:0,0}", item.dGiaban)</td>
-                <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
-                <td> <a href="@Url.Action("Details","PhuKien",new { id = item.iMaPK })">Chi tiết </a></td>
-                <td>@Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.iMaPK }) </td>
-                <td> <input type="submit" value="Cập Nhật" /></td>
-            }
+                    <td>@item.iSoLuong</td>
+                                        <td>@String.Format("{0:0,0}", item.dGiaban)</td>
+                                                            <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+                                                                                <td> <a href="@Url.Action("Detail","PHUKIEN",new { id = item.iMaPK })">Chi tiết </a></td>
+                                                                                                    <td>@Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.iMaPK }) </td>
+                                                                                                                        <td> <input type="submit" value="Cập Nhật" /></td>}
 
 
-        </tr>
-
-    }
+</tr>}
     <tr style="font-weight:bold;text-align:right; color:red">
         <td colspan="4">So luong phu kien :@ViewBag.TongSoLuong</td>
         <td colspan="4">Tong Tien :@String.Format("{0:0,0}", ViewBag.TongTien) VND</td>
@@ -57,10 +52,9 @@
     </tr>
     <tr style="font-weight:bold;color:red; text-align:right">
         <td colspan="9">
-            @Html.ActionLink("ĐẶT HÀNG","DatHang","GioHang")
+            @Html.ActionLink("ĐẶT HÀNG", "DatHang", "GioHang")
         </td>
     </tr>
 </table>
 
-   
 

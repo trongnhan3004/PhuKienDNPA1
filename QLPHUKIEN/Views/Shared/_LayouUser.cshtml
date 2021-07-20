@@ -12,7 +12,7 @@
     <link href="~/Content/price-range.css" rel="stylesheet">
     <link href="~/Content/animate.css" rel="stylesheet">
     <link href="~/Content/main.css" rel="stylesheet">
-    <link href="~/Content/responsive.css" rel="stylesheet">
+    
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -35,7 +35,7 @@
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
                                 <li><a href="#"><i class="fa fa-phone"></i> 0988888888 </a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> DNPAVN@Gmail.com</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> DNPAVN@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-md-4 clearfix">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="~/images/DNPAlogo.png" width="220" , height="100" /></a>
+                            <a href="~/PhuKien/Index"><img src="~/images/DNPAlogo.png" width="220" , height="100" /></a>
                         </div>
                         <div class="btn-group pull-right clearfix">
                         </div>
@@ -71,7 +71,6 @@
                                 <li><a href="@Url.Action("Giohang","GioHang")"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
                                 <li><a href="@Url.Action("DangNhap","User")"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                                 <li> <a href="@Url.Action("DangKy","User")"> <i class="fa fa-lock"> Đăng ký</i></a></li>
-                                
                             </ul>
                         </div>
                     </div>
@@ -101,7 +100,7 @@
                                         <li><a href="#">Sản phẩm</a></li>
                                         <li><a href="#">Danh mục sản phẩm</a></li>
                                         <li><a href="#">Thanh toán</a></li>
-                                        <li><a href="#">Giỏ Hàng</a></li>
+                                        <li><a href="@Url.Action("Giohang","GioHang")">Giỏ Hàng</a></li>
                                         <li><a href="#">Đăng nhập</a></li>
                                     </ul>
                                 </li>
@@ -112,8 +111,8 @@
                                         <li><a href="#">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Liên hệ</a></li>
+                                <li><a href="@Url.Action("E404","Home")">404</a></li>
+                                <li><a href="@Url.Action("LienHe","Home")">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -239,228 +238,18 @@
                     </div>
 
                 </div>
+                @*note*@
+                <br />
+                <div class="col-md-3">
+                    <p class="lead"><span style="color:red">Danh Mục Sản Phẩm</span></p>
+                    @Html.Action("CHUDE", "PhuKien")
+                </div>
+
+                @RenderBody()
             </div>
         </div>
+
     </section><!--/slider-->
-    <div class="features_items">
-
-        <!--features_items-->
-        <h2 class="title text-center">Sản phẩm mới</h2>
-        @*<div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="~/images/bp2.jpg" width="150" height="300" alt="" />
-                        <h2>600k</h2>
-                        <p>Bàn phím cơ Mistel X8 Bumblebee</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>600k</h2>
-                            <p>Bàn phím cơ Mistel X8 Bumblebee</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="/images/ghe4.png" width="150" height="300" alt="" />
-                        <h2>769k</h2>
-                        <p>Ghế chơi game DXRacer G Series OH/GB001/NR</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>769k</h2>
-                            <p>Ghế chơi game DXRacer G Series OH/GB001/NR</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="/images/c2.jpg" width="150" height="300" alt="" />
-                        <h2>880k</h2>
-                        <p>Chuột Razer Viper Mini</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>880k </h2>
-                            <p>Chuột Razer Viper Mini</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="/images/lk1.jpg" width="150" height="300" alt="" />
-                        <h2>8590k</h2>
-                        <p>Intel Core i7 10700</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>8590k</h2>
-                            <p>Intel Core i7 10700</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                        </div>
-                    </div>
-                    <img src="images/home/new.png" class="new" alt="" />
-                </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="/images/tn2.jpg" width="150" height="300" alt="" />
-                        <h2>2090k</h2>
-                        <p>Tai nghe HyperX Cloud II RED</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>2090k</h2>
-                            <p>Tai nghe HyperX Cloud II RED</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                        </div>
-                    </div>
-                    <img src="images/home/sale.png" class="new" alt="" />
-                </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                        <img src="/images/a3.jpg" width="150" height="300" alt="" />
-                        <h2>2100k</h2>
-                        <p>Loa Bluetooth JBL Flip 5</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                    <div class="product-overlay">
-                        <div class="overlay-content">
-                            <h2>2100k</h2>
-                            <p>Loa Bluetooth JBL Flip 5</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-
-    </div><!--features_items-->
-
-    <h2 class="title text-center">Sản phẩm đề xuất</h2>
-    <div class="col-md-3">
-
-        <p class="lead">Danh Mục Sản Phẩm</p>
-        @Html.Action("CHUDE", "PhuKien");
-
-    </div>
-    <div class="col-sm-4">
-        <div class="product-image-wrapper">
-            <div class="single-products">
-                <div class="productinfo text-center">
-                    <img src="~/images/bp2.jpg" width="150" height="300" alt="" />
-                    <h2>600k</h2>
-                    <p>Bàn phím cơ Mistel X8 Bumblebee</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                </div>
-                <div class="product-overlay">
-                    <div class="overlay-content">
-                        <h2>600k</h2>
-                        <p>Bàn phím cơ Mistel X8 Bumblebee</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="choose">
-                <ul class="nav nav-pills nav-justified">
-                    <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                    <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="product-image-wrapper">
-            <div class="single-products">
-                <div class="productinfo text-center">
-                    <img src="~/images/bp2.jpg" width="150" height="300" alt="" />
-                    <h2>600k</h2>
-                    <p>Bàn phím cơ Mistel X8 Bumblebee</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                </div>
-                <div class="product-overlay">
-                    <div class="overlay-content">
-                        <h2>600k</h2>
-                        <p>Bàn phím cơ Mistel X8 Bumblebee</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-                    </div>
-                </div>
-            </div>
-            <div class="choose">
-                <ul class="nav nav-pills nav-justified">
-                    <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
-                    <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    @RenderBody()
-
-
     <footer id="footer">
         <!--Footer-->
         <div class="footer-top">
@@ -566,10 +355,10 @@
                         <div class="single-widget">
                             <h2>Sản Phẩm Bán Chạy</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Bàn Phím</a></li>
-                                <li><a href="#">Chuột</a></li>
-                                <li><a href="#">Tai Nghe</a></li>
-                                <li><a href="#">Ghế Gaming</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/5">Bàn Phím</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/6">Chuột</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/7">Tai Nghe</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/8">Ghế Gaming</a></li>
 
                             </ul>
                         </div>

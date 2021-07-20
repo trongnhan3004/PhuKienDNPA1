@@ -1,42 +1,44 @@
 ﻿
-@model IEnumerable<QLPHUKIEN.Models.PHUKIEN>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayouUser.cshtml";
-}
+@using QLPHUKIEN.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<PHUKIEN>
+
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_LayouUser.cshtml"; }
 
 
 <div class="row">
 
     @foreach (var phukien in Model)
     {
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">col-sm-3
-
-
-
-                <a href="@Url.Action("Detail","PHUKIEN", new { id = phukien.MaPK})">
-                    <img alt="@phukien.TenPK" src="~/images/@phukien.Anhbia" width="200" />
-
-                    <div>
-                        <br />
-                        <h4 style="text-align:center">
-                            @phukien.TenPK
-                        </h4>
-                        <p></p>
-                    </div>
-                </a>
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <a href="@Url.Action("Detail","PHUKIEN", new { id = phukien.MaPK})">
+            <img alt="@phukien.TenPK" src="~/images/@phukien.Anhbia" width="100" />
+            <div>
+                <h4 style="text-align:center">
+                    @phukien.TenPK
+                </h4>
+                <h4 style="text-align:center">
+                    @phukien.Giaban VND
+                </h4>
             </div>
-        </div>
+        </a>
 
-
-
-
-
-
-
-
-    }
     </div>
+</div>}
+    <div class="col-sm-4 col-lg-4">
+        Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+            </style>
+        </div>
+    </div>
+</div>
 

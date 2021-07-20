@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QLPHUKIEN.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace QLPHUKIEN.Controllers
 {
@@ -18,10 +20,13 @@ namespace QLPHUKIEN.Controllers
             }
 
         // GET: PhuKien
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var phukienmoi = Layphukien(5);
-            return View(phukienmoi);
+            // tao bien quy dinh so san pham tren moi trang
+            int pageSize = 4;
+            int pageNum = (page ?? 1);
+            var phukienmoi = Layphukien(4);
+            return View(phukienmoi.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Chude()
         {

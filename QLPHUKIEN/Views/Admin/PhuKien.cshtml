@@ -1,0 +1,87 @@
+﻿@using PagedList.Mvc;
+@using QLPHUKIEN.Models;
+@model PagedList.PagedList<QLPHUKIEN.Models.PHUKIEN>
+@*@model IEnumerable<QLPHUKIEN.Models.PHUKIEN>*@
+@{
+    ViewBag.Title = "PhuKien";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý thông tin phụ kiện</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenPK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Giaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Mota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Anhbia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Ngaycapnhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Soluongton)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaCD)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenPK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                <div>
+                    <img width=50 src="@Url.Content("~/images/"+ item.Anhbia)   " />
+                </div>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaPK }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaPK }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaPK })
+            </td>
+        </tr>
+    }
+</table>
+@*tạo liên kết các trang*@
+Trang @Model.PageCount Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount ;
+    <div class="MenuTrang">
+
+        @Html.PagedListPager(Model, page => Url.Action("PhuKien", new { page = page }))
+    </div>
+             <style>
+                 .MenuTrang li {
+                 display: inline;
+}
+             </style>
+

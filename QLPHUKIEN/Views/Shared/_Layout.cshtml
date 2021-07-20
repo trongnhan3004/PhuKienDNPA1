@@ -1,40 +1,309 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - DNPAVN </title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>DNPAVN.COM</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/price-range.css" rel="stylesheet">
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/main.css" rel="stylesheet">
+    <link href="~/Content/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="~/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Shop", "Shop", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#"><i class="fa fa-phone"></i> 0988888888 </a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> DNPAVN@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>*@
-    <div>
-        @RenderBody()
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 clearfix">
+                        <div class="logo pull-left">
+                            <a href="~/PhuKien/Index"><img src="~/images/DNPAlogo.png" width="220" , height="100" /></a>
+                        </div>
+                        <div class="btn-group pull-right clearfix">
+                        </div>
+                    </div>
+                    <div class="col-md-8 clearfix">
+                        <div class="shop-menu clearfix pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href=""><i class="fa fa-user"></i> Tài khoản</a></li>
+                                <li><a href=""><i class="fa fa-star"></i> Yêu Thích</a></li>
+                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Thanh Toán</a></li>
+                                <li><a href="@Url.Action("Giohang","GioHang")"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
+                                <li><a href="@Url.Action("DangNhap","User")"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                <li> <a href="@Url.Action("DangKy","User")"> <i class="fa fa-lock"> Đăng ký</i></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="@Url.Action("Index","Home")" class="active">Trang chủ</a></li>
+                                <li class="dropdown">
+                                    <a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="#">Sản phẩm</a></li>
+                                        <li><a href="#">Danh mục sản phẩm</a></li>
+                                        <li><a href="#">Thanh toán</a></li>
+                                        <li><a href="@Url.Action("Giohang","GioHang")">Giỏ Hàng</a></li>
+                                        <li><a href="#">Đăng nhập</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="#">Blog List</a></li>
+                                        <li><a href="#">Blog Single</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="contact-us.html">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="search_box pull-right">
+                            <input type="text" placeholder="Search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-bottom-->
+    </header><!--/header-->
 
 
-    </div>
+    <div> @RenderBody()</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+
+    <footer id="footer">
+        <!--Footer-->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="companyinfo">
+                            <h2><span>D</span>NPAVN</h2>
+                            <p>Chất lượng là danh dự</p>
+                            <p>Vui thì khách ghé</p>
+                            <p>Vừa lòng khách mua</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="https://www.youtube.com/watch?v=Nkwd02xIjjk" target="_blank">
+                                    <div class="iframe-img">
+                                        <img src="~/images/video1.png" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>Top 3 bàn phím giá rẻ dưới 1 triệu đồng</p>
+                                <h2>17 July 2021</h2>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="https://www.youtube.com/watch?v=vyBF1umlbUo" target="_blank">
+                                    <div class="iframe-img">
+                                        <img src="~/images/video2.png" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>
+                                    Cách để CHƠI GAME KHÔNG LAG!!!
+                                </p>
+                                <h2>17 July 2021</h2>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="https://www.youtube.com/watch?v=zEbvpnfMzdA" target="_blank">
+                                    <div class="iframe-img">
+                                        <img src="~/images/video3.png" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>RAM là gì, bao nhiêu RAM là đủ?</p>
+                                <h2>17 July 2021</h2>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="video-gallery text-center">
+                                <a href="https://www.youtube.com/watch?v=dcMIqw9wQ_s" target="_blank">
+                                    <div class="iframe-img">
+                                        <img src="~/images/video4.png" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                </a>
+                                <p>Top 5 Ghế Gaming ngồi cực thoải mái, giá bình dân</p>
+                                <h2>17 July 2021</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="address">
+                            <img src="~/images/map.png" />
+                            <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Dịch vụ</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Hỗ trợ trực tuyến</a></li>
+                                <li><a href="#">Kết nối với chúng tôi</a></li>
+                                <li><a href="#">Tình trạng đơn hàng</a></li>
+                                <li><a href="#">Đổi trả hàng</a></li>
+                                <li><a href="#">Báo lỗi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Sản Phẩm Bán Chạy</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="~/PHUKIEN/SPTheochude/5">Bàn Phím</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/6">Chuột</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/7">Tai Nghe</a></li>
+                                <li><a href="~/PHUKIEN/SPTheochude/8">Ghế Gaming</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Chính Sách</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Điều khoản</a></li>
+                                <li><a href="#">Chính sách bảo mật</a></li>
+                                <li><a href="#">Chính sách đổi trả</a></li>
+                                <li><a href="#">Cổng thanh toán</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Về chúng tôi</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Thông tin cửa hàng</a></li>
+                                <li><a href="#">Nghề nghiệp</a></li>
+                                <li><a href="#">Vị trí cửa hàng</a></li>
+                                <li><a href="#">Chương trình liên kết</a></li>
+                                <li><a href="#">Copyright</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-sm-offset-1">
+                        <div class="single-widget">
+                            <h2>Thông Tin</h2>
+                            <form action="#" class="searchform">
+                                <input type="text" placeholder="Your email address" />
+                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                <p>
+                                    Nhận các bản cập nhật gần đây nhất từ
+                                    trang web của chúng tôi  <br />
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <p class="pull-left">Copyright © 2021 D-NPAVN Inc. All rights reserved.</p>
+                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.facebook.com/taoghetfb/">FaceBook</a></span></p>
+                </div>
+            </div>
+        </div>
+
+    </footer><!--/Footer-->
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.scrollUp.min.js"></script>
+    <script src="~/Scripts/price-range.js"></script>
+    <script src="~/Scripts/jquery.prettyPhoto.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
 </body>
 </html>

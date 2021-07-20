@@ -1,42 +1,31 @@
 ﻿@model IEnumerable<QLPHUKIEN.Models.PHUKIEN>
 
-@{
-    ViewBag.Title = "SPTheochude";
-    Layout = "~/Views/Shared/_LayouUser.cshtml";
-}
+@{ ViewBag.Title = "SPTheochude";
+                Layout = "~/Views/Shared/_LayouUser.cshtml"; }
 
 
 
 <div class="row">
+
+
     @foreach (var phukien in Model)
     {
-    
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-
-
-
-                <a href="@Url.Action("Detail","PHUKIEN", new { id = phukien.MaPK})">
-                    <img alt="@phukien.TenPK" src="~/images/@phukien.Anhbia" width="200" />
-
-                    <div>
-                        <br />
-                        <h4 style="text-align:center">
-                            @phukien.TenPK
-                        </h4>
-                        <p></p>
-                    </div>
-                </a>
+<div class="col-sm-4 col-xs-12">
+    <div class="thumbnail">
+        <a href="@Url.Action("Detail", "PHUKIEN", new { id = phukien.MaPK })">
+            <img alt="@phukien.TenPK" src="~/images/@phukien.Anhbia" width="70" />
+            <div>
+                <h4 style="text-align:center">
+                    @phukien.TenPK
+                </h4>
+                <h4 style="text-align:center;color:red">
+                    @phukien.Giaban VND
+                </h4>
             </div>
-        </div>
+        </a>
 
-
-
-
-
-
-
-
-    }
+    </div>
+</div>}
 </div>
+
 

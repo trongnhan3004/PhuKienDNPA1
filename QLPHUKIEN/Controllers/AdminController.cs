@@ -18,15 +18,15 @@ namespace QLPHUKIEN.Controllers
                 return RedirectToAction("Login", "Admin"); // chưa có thì nhảy vào loginz
             else
                 // có r thì show trang chủ admin
-            return View();
+                return View();
         }
         // tao view cho acction phu kien
-        public ActionResult PhuKien(int ?page)
+        public ActionResult PhuKien(int? page)
         {
             int pageNumber = (page ?? 1);
             int pageSize = 7;
 
-            return View(db.PHUKIENs.ToList().OrderBy(n=>n.MaPK).ToPagedList(pageNumber,pageSize));
+            return View(db.PHUKIENs.ToList().OrderBy(n => n.MaPK).ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
         public ActionResult Login()
@@ -61,6 +61,59 @@ namespace QLPHUKIEN.Controllers
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẫu không đúng ";
             }
             return View();
+        }
+        [HttpGet]
+        public ActionResult ThemPhuKien()
+        {
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("Login", "Admin");
+            else
+                ViewBag.MaCD = new SelectList(db.CHUDEs.OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult ThemPhuKien(PHUKIEN phukien)
+        {
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("Login", "Admin");
+            else
+            {
+                
+
+                db.PHUKIENs.InsertOnSubmit(phukien);
+                db.SubmitChanges();
+                return RedirectToAction("PhuKien", "Admin");
+            }
+        }
+        // sửa sản phẩm
+        public ActionResult SuaPhuKien(int id)
+        {
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("Login", "Admin");
+            else
+            {
+
+               // var phukien = from s in db.PHUKIENs where s.MaPK == id select s;
+                PHUKIEN phukien = db.PHUKIENs.SingleOrDefault(n => n.MaPK == id);
+                // lấy DL từ table chude để đổ vào dropdownlist kèm theo chọn MaCD tương ứng
+                ViewBag.MaCD = new SelectList(db.CHUDEs.OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
+                return View(phukien);
+            }
+        }
+        [HttpPost, ActionName("SuaPhuKien")]
+        public ActionResult XacNhanSua(int id)
+        {
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("Login", "Admin");
+            else
+            {
+                
+                PHUKIEN phukien = db.PHUKIENs.SingleOrDefault(n => n.MaPK == id);
+                UpdateModel(phukien);
+                db.SubmitChanges();
+                return RedirectToAction("PhuKien", "Admin");
+            }
         }
     }
 }

@@ -10,7 +10,7 @@
 <h2>Quản lý thông tin phụ kiện</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "ThemPhuKien")
 </p>
 <table class="table">
     <tr>
@@ -65,9 +65,9 @@
                 @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaPK }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaPK }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaPK })
+                @Html.ActionLink("Edit", "SuaPhuKien", new { id = item.MaPK }) |
+                @Html.ActionLink("Details", "ChiTietPK", new { id = item.MaPK }) |
+                @Html.ActionLink("Delete", "XoaPhuKien", new { id = item.MaPK })
             </td>
         </tr>
     }

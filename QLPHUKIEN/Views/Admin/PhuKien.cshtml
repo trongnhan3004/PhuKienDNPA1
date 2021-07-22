@@ -12,30 +12,30 @@
 <p>
     @Html.ActionLink("Create New", "ThemPhuKien")
 </p>
-<table class="table">
+<table class="table" border="1">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.First().TenPK)
+        <th style="width:200px">
+           Tên Phụ Kiện
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Giaban)
+        <th style="width:100px">
+           Giá
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Mota)
+        <th style="width:300px">
+           Mô tả
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Anhbia)
+        <th style="width:120px">
+           Ảnh bìa
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Ngaycapnhat)
+        <th style="width:150px">
+           Ngày cập nhật
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Soluongton)
+        <th style="width:120px">
+            Số lượng tồn
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().MaCD)
+        <th style="width:100px">
+           Tên chủ đề
         </th>
-        <th></th>
+        <th style="width:200px"> Tác vụ</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Giaban)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Mota)
+                @Html.Raw(item.Mota)
             </td>
             <td>
                 <div>

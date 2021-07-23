@@ -76,7 +76,6 @@ namespace QLPHUKIEN.Controllers
             ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
-
         public ActionResult GiohangPartial()
         {
             ViewBag.Tongsoluong = TongSoLuong();

@@ -1,0 +1,75 @@
+﻿@model QLPHUKIEN.Models.PHUKIEN
+
+@{
+    ViewBag.Title = "ChiTietPK";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChiTietPK</h2>
+
+<div>
+    <h4>PHUKIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenPK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Giaban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giaban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anhbia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anhbia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaycapnhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soluongton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "SuaPhuKien", new { id = Model.MaPK }) |
+    @Html.ActionLink("Back to List", "PhuKien")
+</p>

@@ -71,7 +71,6 @@
                                 <li><a href="@Url.Action("Giohang","GioHang")"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
                                 <li><a href="@Url.Action("DangNhap","User")"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                                 <li> <a href="@Url.Action("DangKy","User")"> <i class="fa fa-lock"> Đăng ký</i></a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -112,8 +111,8 @@
                                         <li><a href="#">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Liên hệ</a></li>
+                                <li><a href="@Url.Action("E404","Home")">404</a></li>
+                                <li><a href="@Url.Action("LienHe","Home")">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -239,31 +238,18 @@
                     </div>
 
                 </div>
+                @*note*@
                 <br />
                 <div class="col-md-3">
                     <p class="lead"><span style="color:red">Danh Mục Sản Phẩm</span></p>
                     @Html.Action("CHUDE", "PhuKien")
-
                 </div>
 
                 @RenderBody()
             </div>
-
-
-        
-
-
         </div>
-     
 
     </section><!--/slider-->
-   
-
-  
-   
-
-
-
     <footer id="footer">
         <!--Footer-->
         <div class="footer-top">

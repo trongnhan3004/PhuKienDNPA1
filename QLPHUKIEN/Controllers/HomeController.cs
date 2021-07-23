@@ -13,6 +13,14 @@ namespace QLPHUKIEN.Controllers
             return View();
         }
 
+        public ActionResult E404()
+        {
+            return View();
+        }
+        public ActionResult LienHe()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

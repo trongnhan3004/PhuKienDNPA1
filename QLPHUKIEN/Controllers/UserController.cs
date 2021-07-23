@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Facebook;
 using System.Configuration;
-using NPOI.SS.Formula.Functions;
+//using NPOI.SS.Formula.Functions;
 
 namespace QLPHUKIEN.Controllers
 {

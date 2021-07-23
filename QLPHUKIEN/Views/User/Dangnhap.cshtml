@@ -3,33 +3,122 @@
     ViewBag.Title = "Dangnhap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-        <h4 style="color:red; text-align:center">@ViewBag.ThongBao</h4>
-        <table align="center">
-            <h3 style="text-align:center"> Đăng Nhập </h3>
-            @using (Html.BeginForm())
-            {
 
-                @Html.ValidationSummary(true)
-                <tr style="height:40px">
-                    <td>Tên Đăng Nhập:</td>
-                    <td>
-                        @Html.TextBox("TenDN")
-                        @ViewData["Loi1"]
-                    </td>
-                </tr>
-                <tr style="height:40px">
-                    <td align="right">Mật Khẫu:</td>
-                    <td>
-                        @Html.Password("Matkhau")
-                        @ViewData["Loi2"]
-                    </td>
-                </tr>
-                <tr style="height:40px">
-                    <td>:</td>
-                    <td>
-                        <input type="submit" value="Đăng Nhập" />
-                    </td>
-                </tr>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+
+    <h4 style="color:red; text-align:center">@ViewBag.ThongBao</h4>
+    <h3 style="text-align:center"> Đăng Nhập </h3>
+    <table align="center">
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>Tên Đăng Nhập:</td>
+                <td>
+                    @Html.TextBox("TenDN")
+                    @ViewData["Loi1"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td align="right">Mật Khẫu:</td>
+                <td>
+                    @Html.Password("Matkhau")
+                    @ViewData["Loi2"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td></td>
+                <td>
+                    <input type="submit" value="Đăng Nhập" />
+                </td>
+            </tr>
+
+
+
+        }
+       
+
+    </table>
+
+    <h3 style="text-align:center">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState(); ">
+        </fb:login-button>  
+    </h3>
+
+    <h4 style="text-align:center;color:red"; id="status"> </h4>
+
+
+
+    <!-- Load the JS SDK asynchronously -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+
+
+
+    <script>
+
+
+        function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+            console.log('statusChangeCallback');
+            console.log(response);                   // The current login status of the person.
+            if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                testAPI();
+            } else {                                 // Not logged into your webpage or we are unable to tell.
+                document.getElementById('status').innerHTML = 'Đăng nhập bằng ' +
+                    'Facebook.';
+
             }
+        }
 
-        </table>
+
+        function checkLoginState() {               // Called when a person is finished with the Login Button.
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                statusChangeCallback(response);
+            });
+        }
+
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '535595560819481',
+                cookie: true,                     // Enable cookies to allow the server to access the session.
+                xfbml: true,                     // Parse social plugins on this webpage.
+                version: 'v11.0'           // Use this Graph API version for this call.
+            });
+
+
+
+
+            FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+                statusChangeCallback(response);        // Returns the login status.
+            });
+        };
+
+        function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+                document.getElementById('status').innerHTML =
+                    'Xin chào, ' + response.name + '!';
+            });
+
+        }
+
+    </script>
+
+    <!-- The JS SDK Login Button -->
+
+</body>
+
+
+
+
+</html>
+
